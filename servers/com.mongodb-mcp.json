@@ -26,16 +26,18 @@
       "mongodb-mcp-server@latest"
     ],
     "env": {
-      "MDB_MCP_CONNECTION_STRING": "${input:MONGODB_URI}"
+      "MDB_MCP_CONNECTION_STRING": "${input:MONGODB_URI}",
+      "MDB_MCP_API_CLIENT_ID": "${input:ATLAS_CLIENT_ID}",
+      "MDB_MCP_API_CLIENT_SECRET": "${input:ATLAS_CLIENT_SECRET}"
     },
     "metadata": {
       "inputs": [
         {
           "id": "MONGODB_URI",
           "label": "MongoDB Connection String",
-          "description": "MongoDB connection URI for your database. Supports local instances, Atlas clusters, and replica sets.",
+          "description": "MongoDB connection URI for your database. Supports local instances, Atlas clusters, and replica sets. Leave empty to use the runtime connect tool.",
           "type": "text",
-          "required": true,
+          "required": false,
           "secret": true,
           "placeholder": "mongodb+srv://username:password@cluster.mongodb.net/mydb",
           "obtain": {
@@ -43,12 +45,41 @@
             "instructions": "1. For MongoDB Atlas: Go to your cluster > Connect > Drivers\n2. Copy the connection string\n3. Replace <password> with your database password\n4. For local MongoDB: use mongodb://localhost:27017/mydb",
             "button_label": "Learn More"
           }
+        },
+        {
+          "id": "ATLAS_CLIENT_ID",
+          "label": "Atlas API Client ID",
+          "description": "MongoDB Atlas Service Account client ID for Atlas management operations (create clusters, manage users, IP access lists). Optional — only needed for Atlas administration.",
+          "type": "text",
+          "required": false,
+          "secret": true,
+          "placeholder": "mdb_sa_id_...",
+          "obtain": {
+            "url": "https://www.mongodb.com/docs/atlas/configure-api-access/",
+            "instructions": "1. Go to MongoDB Atlas > Organization Settings > Service Accounts\n2. Create a new Service Account with required roles\n3. Copy the Client ID",
+            "button_label": "Configure API Access"
+          }
+        },
+        {
+          "id": "ATLAS_CLIENT_SECRET",
+          "label": "Atlas API Client Secret",
+          "description": "MongoDB Atlas Service Account client secret. Required when Atlas API Client ID is provided.",
+          "type": "text",
+          "required": false,
+          "secret": true,
+          "placeholder": "mdb_sa_sk_...",
+          "obtain": {
+            "url": "https://www.mongodb.com/docs/atlas/configure-api-access/",
+            "instructions": "1. Go to MongoDB Atlas > Organization Settings > Service Accounts\n2. Create or select a Service Account\n3. Copy the Client Secret (shown only once at creation)",
+            "button_label": "Configure API Access"
+          }
         }
       ]
     }
   },
   "auth": {
-    "type": "none"
+    "type": "optional_api_key",
+    "instructions": "Connection string provides database access. Atlas API credentials (optional) enable cluster management features."
   },
   "contributor": {
     "name": "MongoDB",
@@ -67,7 +98,7 @@
     "tools": true,
     "resources": false,
     "prompts": false,
-    "read_only_mode": false
+    "read_only_mode": true
   },
   "changelog_url": "https://github.com/mongodb-js/mongodb-mcp-server/releases"
 }
