@@ -1,0 +1,31 @@
+{
+  "$schema": "../schemas/server-definition.schema.json",
+  "id": "community.uk-premises-licence-preflight",
+  "name": "UK Premises Licence Preflight",
+  "description": "Deterministic England premises-licensing preflight decisions for regulated licensing and compliance workflows.",
+  "schema_version": "2.1",
+  "categories": ["security"],
+  "tags": ["uk", "premises", "licensing", "compliance", "regulatory"],
+  "transport": {
+    "type": "http",
+    "url": "https://uk-premises-licence-mcp-production.up.railway.app/mcp",
+    "metadata": {"inputs": []}
+  },
+  "auth": {"type": "none"},
+  "contributor": {
+    "name": "ChanghuLiu",
+    "github": "ChanghuLiu",
+    "url": "https://github.com/ChanghuLiu"
+  },
+  "links": {
+    "homepage": "https://uk-premises-licence-mcp-production.up.railway.app/mcp",
+    "documentation": "https://uk-premises-licence-mcp-production.up.railway.app/openapi.json"
+  },
+  "platforms": ["all"],
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false,
+    "read_only_mode": true
+  }
+}

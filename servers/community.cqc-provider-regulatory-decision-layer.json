@@ -1,0 +1,31 @@
+{
+  "$schema": "../schemas/server-definition.schema.json",
+  "id": "community.cqc-provider-regulatory-decision-layer",
+  "name": "CQC Provider Regulatory Decision Layer",
+  "description": "Deterministic England CQC provider regulatory preflight decisions for registration scope and statutory notifications.",
+  "schema_version": "2.1",
+  "categories": ["security"],
+  "tags": ["uk", "cqc", "compliance", "regulatory", "healthcare"],
+  "transport": {
+    "type": "http",
+    "url": "https://cqc-provider-mcp-production.up.railway.app/mcp",
+    "metadata": {"inputs": []}
+  },
+  "auth": {"type": "none"},
+  "contributor": {
+    "name": "ChanghuLiu",
+    "github": "ChanghuLiu",
+    "url": "https://github.com/ChanghuLiu"
+  },
+  "links": {
+    "homepage": "https://cqc-provider-mcp-production.up.railway.app/mcp",
+    "documentation": "https://cqc-provider-mcp-production.up.railway.app/openapi.json"
+  },
+  "platforms": ["all"],
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false,
+    "read_only_mode": true
+  }
+}

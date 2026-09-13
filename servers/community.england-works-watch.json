@@ -1,0 +1,32 @@
+{
+  "$schema": "../schemas/server-definition.schema.json",
+  "id": "community.england-works-watch",
+  "name": "England Works Watch",
+  "description": "Deterministic UK Skilled Worker sponsor-duty change-impact decisions with evidence-linked regulatory guidance.",
+  "schema_version": "2.1",
+  "categories": ["security"],
+  "tags": ["uk", "compliance", "regulatory", "sponsor", "immigration"],
+  "transport": {
+    "type": "http",
+    "url": "https://england-works-watch-production.up.railway.app/mcp",
+    "metadata": {"inputs": []}
+  },
+  "auth": {"type": "none"},
+  "contributor": {
+    "name": "ChanghuLiu",
+    "github": "ChanghuLiu",
+    "url": "https://github.com/ChanghuLiu"
+  },
+  "links": {
+    "repository": "https://github.com/ChanghuLiu/england-works-watch",
+    "homepage": "https://england-works-watch-production.up.railway.app/mcp",
+    "documentation": "https://england-works-watch-production.up.railway.app/openapi.json"
+  },
+  "platforms": ["all"],
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false,
+    "read_only_mode": true
+  }
+}
