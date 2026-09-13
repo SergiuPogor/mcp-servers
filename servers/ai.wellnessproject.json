@@ -1,0 +1,52 @@
+{
+  "$schema": "../schemas/server-definition.schema.json",
+  "id": "ai.wellnessproject",
+  "name": "Wellness Project",
+  "alias": "wellness-project",
+  "description": "Read and log your own workouts, meals, sleep, recovery, body metrics, labs and wearable data from Wellness Project, with interactive charts in clients that support MCP Apps.",
+  "logo": "https://wellnessproject.ai/images/brand/mcp-icon-512.png",
+  "schema_version": "2.1",
+  "categories": [
+    "productivity"
+  ],
+  "tags": [
+    "health",
+    "fitness",
+    "nutrition",
+    "sleep",
+    "recovery",
+    "wearables",
+    "quantified-self",
+    "remote"
+  ],
+  "transport": {
+    "type": "http",
+    "url": "https://wellnessproject.ai/api/mcp",
+    "metadata": {
+      "inputs": []
+    }
+  },
+  "auth": {
+    "type": "oauth",
+    "instructions": "Sign in with your Wellness Project account in the browser (OAuth 2.1 with Dynamic Client Registration). No client ID, secret or API key to configure."
+  },
+  "contributor": {
+    "name": "Wellness Project",
+    "github": "turnnoblindeye",
+    "url": "https://wellnessproject.ai"
+  },
+  "links": {
+    "repository": "https://github.com/turnnoblindeye/wellness-project-mcp",
+    "homepage": "https://wellnessproject.ai",
+    "documentation": "https://github.com/turnnoblindeye/wellness-project-mcp"
+  },
+  "platforms": [
+    "all"
+  ],
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false,
+    "read_only_mode": false
+  }
+}
